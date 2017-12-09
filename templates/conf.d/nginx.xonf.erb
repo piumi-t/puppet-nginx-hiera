@@ -1,0 +1,25 @@
+user <%= @config_process_user %>;
+worker_processes 512;
+
+error_log  <%= @config_log_dir %>/error.log;
+pid        <%= @config_pid_file %>;
+
+events {
+  worker_connections 1024;
+  }
+
+  http {
+    server_tokens off;
+      include       <%= @config_dir %>/mime.types;
+        default_type  application/octet-stream;
+
+	  access_log  <%= @config_log_dir %>/access.log;
+
+	    sendfile    on;
+	    tcp_nodelay        on;
+
+	      include <%= @config_confd %>/*.conf;
+	      <% if @config_vdir_enable %>
+		        include <%= @config_vdir_enable %>/*;
+		<% end %>
+		}
