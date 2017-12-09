@@ -1,0 +1,15 @@
+{
+  "name": "piumi-nginx",
+  "version": "0.1.0",
+  "author": "piumi",
+  "summary": "This is nginx module",
+  "license": "Apache-2.0",
+  "source": "git@github.com:piumi-t/puppet-nginx.git",
+  "project_page": "https://github.com/piumi-t/puppet-nginx",
+  "issues_url": "https://github.com/piumi-t/puppet-nginx/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
