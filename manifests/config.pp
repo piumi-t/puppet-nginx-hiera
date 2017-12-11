@@ -10,7 +10,7 @@ class nginx::config(
   $config_vdir                   = $::nginx::config_vdir,
   $config_process_user           = $::nginx::config_process_user,
   # $config_process_user_default = $::nginx::config_process_user_default,
-  $vhost_dir                     = $::nginx::vhost_dir,
+  #$vhost_dir                     = $::nginx::vhost_dir,
   # $vhost_dir_default           = $::nginx::vhost_dir_default,
   $docroot                       = $::nginx::docroot,
 ) {
@@ -39,12 +39,12 @@ class nginx::config(
   }
 
   file { $config_log_dir:
-    ensure  => directory,
+    ensure  => 'directory',
     recurse => true,
   }
 
   file { $docroot:
-    ensure   => directory,
+    ensure   => 'directory',
     recurse  => true,
     mode     => $config_mode,
     owner    => $config_owner,
