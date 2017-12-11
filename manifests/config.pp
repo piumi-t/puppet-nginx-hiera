@@ -7,7 +7,7 @@ class nginx::config(
   $config_confd                  = $::nginx::config_confd,
   $config_log_dir                = $::nginx::config_log_dir,
   $config_pid_file               = $::nginx::config_pid_file,
-  $config_vdir                   = $::nginx::config_vdir,
+  #$config_vdir                   = $::nginx::config_vdir,
   $config_process_user           = $::nginx::config_process_user,
   # $config_process_user_default = $::nginx::config_process_user_default,
   #$vhost_dir                     = $::nginx::vhost_dir,
@@ -29,13 +29,13 @@ class nginx::config(
         #default  => $vhost_dir_default,
         #}
 
-  file { $config_confd:
-    ensure  => 'directory',
-    recurse => true,
-    mode    => $config_mode,
-    owner   => $config_owner,
-    group   => $config_group,
-  }
+        #file { $config_confd:
+          #ensure  => 'directory',
+          #recurse => true,
+          #mode    => $config_mode,
+          #owner   => $config_owner,
+          #group   => $config_group,
+          #}
 
   file { 'nginx_conf':
     ensure  => $config_ensure,
