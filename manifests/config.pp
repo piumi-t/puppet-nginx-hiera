@@ -28,7 +28,7 @@ class nginx::config(
         #'Debian' => $vhost_dir_debian,
         #default  => $vhost_dir_default,
         # }
-  file { "${config_dir}/conf.d":
+  file { $config_confd:
     ensure  => 'directory',
     recurse => true,
     mode    => $config_mode,
