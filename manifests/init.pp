@@ -22,21 +22,24 @@ class nginx(
   $service_hasstatus,
   $service_hasrestart,
   $docroot,
+  $vhost_dir,
+  $config_vdir_enable,
+  $config_process_user,
 ){
-  $config_vdir_enable = $facts['os']['family'] ? {
-    'Debian' => $config_dir,
-    default  =>  undef,
-  }
+  #$config_vdir_enable = $facts['os']['family'] ? {
+    # 'Debian' => $config_dir,
+    #default  =>  undef,
+    #}
 
-  $config_process_user = $facts['os']['family'] ? {
-    'Debian' => "${config_dir}/sites-avaliable",
-    default  => $config_confd,
-  }
+    #$config_process_user = $facts['os']['family'] ? {
+      #'Debian' => "${config_dir}/sites-avaliable",
+      #default  => $config_confd,
+      # }
 
-  $vhost_dir = $facts['os']['family'] ? {
-    'Debian' => "${config_dir}/sites-avaliable",
-    default  => $config_confd,
-  }
+      #$vhost_dir = $facts['os']['family'] ? {
+        #'Debian' => "${config_dir}/sites-avaliable",
+        #default  => $config_confd,
+        # }
 
  contain nginx::install
  contain nginx::config

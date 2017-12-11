@@ -14,20 +14,20 @@ class nginx::config(
   # $vhost_dir_default           = $::nginx::vhost_dir_default,
   $docroot                       = $::nginx::docroot,
 ) {
-  $config_vdir_enable = $facts['os']['family'] ? {
-      'Debian' => $config_vdir_enable_debian,
-    default  => $config_vdir_enable_default,
-    }
+  # $config_vdir_enable = $facts['os']['family'] ? {
+    #   'Debian' => $config_vdir_enable_debian,
+    #default  => $config_vdir_enable_default,
+    #}
 
-    $config_process_user = $facts['os']['family'] ? {
-      'Debian' => $config_process_user_debian,
-      default  => $config_process_user_default,
-       }
+    #$config_process_user = $facts['os']['family'] ? {
+      # 'Debian' => $config_process_user_debian,
+      #default  => $config_process_user_default,
+      # }
                             
-      $vhost_dir = $facts['os']['family'] ? {
-        'Debian' => $vhost_dir_debian,
-        default  => $vhost_dir_default,
-        }
+      # $vhost_dir = $facts['os']['family'] ? {
+        # 'Debian' => $vhost_dir_debian,
+        #default  => $vhost_dir_default,
+        #}
 
   file { $config_confd:
     ensure  => 'directory',
